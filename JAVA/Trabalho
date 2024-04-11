@@ -1,16 +1,21 @@
-//MAIN
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        
-        Usuario usuario = new Usuario("@Joao", "João V.", "18", "Sou um desenvolvedor","Bem vindo ao meu perfil",1550,"Boné","Link");
-        Postagem postagem = new Postagem("Bem vindos ao meu perfil","Boas vindas","02/05/2024",100);
-        Produto produto = new Produto("Boné corintias","Um bone preto com a logo corintias", 5,"01/20/2024");
+        SistemaPubli sistema = new SistemaPubli();
 
+        Usuario usuario = new Usuario("@Joao", "João V.", "18", "Sou um desenvolvedor", "Bem vindo ao meu perfil", 1550, "Boné", "Link");
+        Postagem postagem = new Postagem("Bem vindos ao meu perfil", "Boas vindas", "02/05/2024", 100);
+        Produto produto = new Produto("Boné corintias", "Um bone preto com a logo corintias", 5, "01/20/2024");
+
+        sistema.PublicarPubli(postagem);
+        sistema.PublicarProd(produto);
+        sistema.MostrarUsuario(usuario);
     }
 }
 
-//USIARIO
-public class Usuario {
+class Usuario {
     private String usuario;
     private String nome;
     private String idade;
@@ -19,6 +24,7 @@ public class Usuario {
     private Integer seguidores;
     private String produto;
     private String video;
+
     public Usuario(String usuario, String nome, String idade, String sobreMim, String postagem, Integer seguidores, String produto, String video) {
         this.usuario = usuario;
         this.nome = nome;
@@ -29,53 +35,46 @@ public class Usuario {
         this.produto = produto;
         this.video = video;
     }
-    public String getUsuario(){
-        return usuario;
-    }
-    public String getNome(){
-        return nome;
-    }
-    public String getIdade(){
-        return idade;
-    }
-    public String getSobreMim(){
-        return sobreMim;
-    }
-    public String getPostagem(){
-        return postagem;
-    }
-    public Integer getSeguidores(){
-        return seguidores;
-    }
-    public String getProduto(){
-        return produto;
-    }
-    public String getVideo(){
-        return video;
-    }
+
+    // Getters
+    public String getUsuario() { return usuario; }
+    public String getNome() { return nome; }
+    public String getIdade() { return idade; }
+    public String getSobreMim() { return sobreMim; }
+    public String getPostagem() { return postagem; }
+    public Integer getSeguidores() { return seguidores; }
+    public String getProduto() { return produto; }
+    public String getVideo() { return video; }
 }
 
-//SISTEMAPUBLI
-import java.util.ArrayList;
-import java.util.List;
-
-public class SistemaPubli {
+class SistemaPubli {
     private List<Usuario> usuarios;
     private List<Postagem> postagems;
     private List<Produto> produtos;
 
-    public SistemaPubli(){
+    public SistemaPubli() {
         usuarios = new ArrayList<>();
         postagems = new ArrayList<>();
         produtos = new ArrayList<>();
     }
-    public void PublicarPubli(Postagem postagem){}
-    public void PublicarProd(Produto produto){}
-    public void MostrarUsuario(Usuario usuario){}
+
+    public void PublicarPubli(Postagem postagem) {
+        postagems.add(postagem);
+        System.out.println("Postagem publicada com sucesso: " + postagem.getTitulo());
+    }
+
+    public void PublicarProd(Produto produto) {
+        produtos.add(produto);
+        System.out.println("Produto publicado com sucesso: " + produto.getNomeProduto());
+    }
+
+    public void MostrarUsuario(Usuario usuario) {
+        usuarios.add(usuario);
+        System.out.println("Usuário adicionado com sucesso: " + usuario.getUsuario());
+    }
 }
 
-//SAPOSTAGEM
-public class Postagem {
+class Postagem {
     private String postagem;
     private String titulo;
     private String dataPostagem;
@@ -88,22 +87,14 @@ public class Postagem {
         this.curtidas = curtidas;
     }
 
-    public String getPostagem(){
-        return postagem;
-    }
-    public String getTitulo(){
-        return titulo;
-    }
-    public String getDataPostagem(){
-        return dataPostagem;
-    }
-    public Integer getCurtidas(){
-        return curtidas;
-    }
+    // Getters
+    public String getPostagem() { return postagem; }
+    public String getTitulo() { return titulo; }
+    public String getDataPostagem() { return dataPostagem; }
+    public Integer getCurtidas() { return curtidas; }
 }
 
-//PRODUTO
-public class Produto {
+class Produto {
     private String nomeProduto;
     private String descricao;
     private Integer valorProduto;
@@ -116,18 +107,9 @@ public class Produto {
         this.dataPublicada = dataPublicada;
     }
 
-    public String getNomeProduto(){
-        return nomeProduto;
-    }
-    public String getDescricao(){
-        return descricao;
-    }
-    public Integer getValorProduto(){
-        return valorProduto;
-    }
-    public String getDataPublicada(){
-        return dataPublicada;
-    }
+    // Getters
+    public String getNomeProduto() { return nomeProduto; }
+    public String getDescricao() { return descricao; }
+    public Integer getValorProduto() { return valorProduto; }
+    public String getDataPublicada() { return dataPublicada; }
 }
-
-
