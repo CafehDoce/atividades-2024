@@ -1,5 +1,4 @@
-//O Switch-case é uma estrutura de controle de fluxo, O funcionamento em si é o seguinte: A expressão dentro do switch é avaliada. Os case representam valores possíveis da expressão.
-
+//Switch-case exemplo
 const fruta = "morango";
 
 switch(fruta) {
@@ -19,8 +18,7 @@ switch(fruta) {
         console.log("Você não tem fruta que goste");
 }
 
-//While loop irá se repetir continuamente, e infinitamente, até a expressão dentro dos parênteses (), se torne falsa. Algo deve mudar a variável testada, ou o loop while nunca irá encerrar. 
-
+//While loop exemplo
 let contador = 0;
 
 while (contador < 11) {
