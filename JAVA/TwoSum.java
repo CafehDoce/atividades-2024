@@ -14,14 +14,12 @@ public class TwoSum {
             map.put(nums[i], i);
         }
 
-        // Se nenhum par for encontrado, retornamos um array vazio
         return new int[]{};
     }
 
     public static void main(String[] args) {
         TwoSum twoSum = new TwoSum();
 
-        // Test case
         int[] nums = {3, 2, 4};
         int target = 6;
 
