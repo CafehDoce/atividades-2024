@@ -1,0 +1,35 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class TwoSum {
+
+    public int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            if (map.containsKey(complement)) {
+                return new int[]{map.get(complement), i};
+            }
+            map.put(nums[i], i);
+        }
+
+        // Se nenhum par for encontrado, retornamos um array vazio
+        return new int[]{};
+    }
+
+    public static void main(String[] args) {
+        TwoSum twoSum = new TwoSum();
+
+        // Test case
+        int[] nums = {3, 2, 4};
+        int target = 6;
+
+        int[] result = twoSum.twoSum(nums, target);
+        if (result.length == 2) {
+            System.out.println("Output: [" + result[0] + ", " + result[1] + "]");
+        } else {
+            System.out.println("Nenhum par encontrado.");
+        }
+    }
+}
