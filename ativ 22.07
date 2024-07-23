@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratica</title>
+</head>
+<body>
+    <header>
+        <img src="" alt="logo">
+        <nav>
+            <a href="#">Finais felizes</a>
+            <a href="#">Adote aqui</a>
+            <a href="#">Como adotar</a>
+            <a href="#">Dicas</a>
+            <a href="#">Quem somos</a>
+        </nav>
+
+    </header>
+    <div>
+        <article>
+            <h1>Doe amor adotando um pet</h>
+            <p>descrição</p>
+        </article>
+        <div>
+            <a href="#">Quero adotar</a>
+            <p>ou</p>
+            <a href="#">Quero ajudar</a>
+        </div>
+    </div>
+    <aside>a</aside>
+</body>
+</html>
