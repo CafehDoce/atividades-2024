@@ -1,0 +1,40 @@
+h1,
+h2{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: #c9c9c9;
+}
+
+section{
+    text-transform: uppercase;
+}
+
+.css{
+    margin: 0;
+    display:flex;
+    background-color: #3d0476;
+
+}
+
+.css h2{
+    color: white;
+}
+
+.box{
+    display: block;
+    margin: 50px auto 0 auto;
+
+    border: 8px solid #3d0476;
+    border-radius: 23px;
+
+    width: 500px;
+    height: 300px;
+    background-color: white;
+}
+
+.box h1{
+    text-align: center;
+
+}
