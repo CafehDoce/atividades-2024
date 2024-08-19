@@ -19,10 +19,12 @@ images.forEach(img =>{
     cardHTML += `
     <div>
         <img src"img/${img}">
+        <img src="img/js-badge.svg">
     <div>
     `
-})
+});
 
+gameContainer.innerHTML = cardHTML;
 
 /*document.addEventListener('DOMContentLoaded', () => {
     const gameContainer = document.querySelector('.game-container');
