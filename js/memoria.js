@@ -1,4 +1,25 @@
-const gameContainer = document.querySelector(".game-container")
+
+document.addEventListener('DOMContentLoaded', () => {
+    const gameContainer = document.querySelector('game-container');
+    const message = document.getElementById('message');
+    const restartButton = document.getElementById('restart');
+    
+    const images = [
+        'img1.png', 'img1.png',
+        'img2.png', 'img2.png',
+        'img3.png', 'img3.png',
+        'img4.png', 'img4.png',
+        'img5.png', 'img5.png',
+        'img6.png', 'img6.png'
+    ];
+
+    //embaralhar cartas
+    images.sort(() => 0.5 - Math.random());
+
+
+});
+
+/* const gameContainer = document.querySelector(".game-container")
 const restart = document.querySelector("button")
 let cartas;
 let carta1 = "";
@@ -26,21 +47,8 @@ images.forEach(img =>{
 
 gameContainer.innerHTML = cardHTML;
 
-/*document.addEventListener('DOMContentLoaded', () => {
-    const gameContainer = document.querySelector('.game-container');
-    const message = document.getElementById('message');
-    const restartButton = document.getElementById('restart');
-    
-    const images = [
-        'img1.png', 'img1.png',
-        'img2.png', 'img2.png',
-        'img3.png', 'img3.png',
-        'img4.png', 'img4.png',
-        'img5.png', 'img5.png',
-        'img6.png', 'img6.png'
-    ];
-    
-    let firstCard, secondCard;
+
+    let primeiracarta, segundacarta;
     let lockBoard = false;
     let matches = 0;
     
@@ -58,26 +66,26 @@ gameContainer.innerHTML = cardHTML;
     }
     
     function flipCard() {
-        if (lockBoard || this === firstCard) return;
+        if (lockBoard || this === primeiracarta) return;
         this.classList.add('flipped');
         
-        if (!firstCard) {
-            firstCard = this;
+        if (!primeiracarta) {
+            primeiracarta = this;
             return;
         }
         
-        secondCard = this;
+        segundacarta = this;
         checkMatch();
     }
     
     function checkMatch() {
-        const isMatch = firstCard.dataset.image === secondCard.dataset.image;
+        const isMatch = primeiracarta.dataset.image === segundacarta.dataset.image;
         isMatch ? disableCards() : unflipCards();
     }
     
     function disableCards() {
-        firstCard.removeEventListener('click', flipCard);
-        secondCard.removeEventListener('click', flipCard);
+        primeiracarta.removeEventListener('click', flipCard);
+        segundacarta.removeEventListener('click', flipCard);
         resetBoard();
         matches++;
         if (matches === images.length / 2) {
@@ -91,14 +99,14 @@ gameContainer.innerHTML = cardHTML;
     function unflipCards() {
         lockBoard = true;
         setTimeout(() => {
-            firstCard.classList.remove('flipped');
-            secondCard.classList.remove('flipped');
+            primeiracarta.classList.remove('flipped');
+            segundacarta.classList.remove('flipped');
             resetBoard();
         }, 1000);
     }
     
     function resetBoard() {
-        [firstCard, secondCard, lockBoard] = [null, null, false];
+        [primeiracarta, segundacarta, lockBoard] = [null, null, false];
     }
     
     function shuffleImages() {
@@ -116,5 +124,5 @@ gameContainer.innerHTML = cardHTML;
     
     restartButton.addEventListener('click', startGame);
     
-    startGame();
-})//*; 
+    startGame(); 
+})*/
