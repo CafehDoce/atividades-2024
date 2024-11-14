@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -10,85 +10,97 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: PerfilScreen(),
+      title: 'Perfil de Usuário',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const UserProfile(),
     );
   }
 }
 
-class PerfilScreen extends StatelessWidget {
-  const PerfilScreen({super.key});
+class UserProfile extends StatelessWidget {
+  const UserProfile({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Perfil do Usuário")),
-      body: Stack(
-        children: [
-          Container(
-            height: 250,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/file:///C:/Users/Cliente/Pictures/dfhdfhg.png"),
-                fit: BoxFit.cover,
+      body: Center(
+        child: ProfileScreen(),
+      ),
+    );
+  }
+}
+
+class ProfileScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Positioned(
+          top: 0,
+          left: 0,
+          right: 0,
+          child: Container(
+            height: 200,
+            color: Colors.pinkAccent,
+          ),
+        ),
+        // Conteúdo principal
+        Positioned(
+          top: 120,
+          left: 0,
+          right: 0,
+          child: Column(
+            children: [
+              // Foto de perfil
+              CircleAvatar(
+                radius: 60,
+                backgroundImage: NetworkImage(
+                    'https://www.google.com/url?sa=i&url=https%3A%2F%2Ftwitter.com%2Fcnt_pr%2Fstatus%2F989233554247897090&psig=AOvVaw1F-5uQZmmIQ_u-5fj1HpCR&ust=1731701817779000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCODQuJTS3IkDFQAAAAAdAAAAABAE'),
               ),
-            ),
-          ),
-
-          Positioned(
-            top: 100,
-            left: MediaQuery.of(context).size.width / 2 - 60, 
-            child: const CircleAvatar(
-              radius: 60,
-              backgroundImage: AssetImage("assets/foto_perfil.jpg"), 
-            ),
-          ),
-
-          Padding(
-            padding: const EdgeInsets.only(top: 220),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Text(
-                  "Lysan",
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              const SizedBox(height: 10),
+              const Text(
+                "Isabella",
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
                 ),
-                const SizedBox(height: 8),
-                const Text(
-                  "Aqui vai a bio do usuário, uma pequena descrição sobre ele.",
+              ),
+              // Bio do usuário
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+                child: Text(
+                  "Programadora em ascenção, focava em HTML, CSS, e um pouco de Java Script, com aptdão em front end.",
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 16, color: Colors.grey),
+                  style: TextStyle(fontSize: 16, color: Colors.black54),
                 ),
-                const SizedBox(height: 20),
-                Row(
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ElevatedButton(
-                      onPressed: () {
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue,
-                        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: const Text("Seguir"),
                       ),
-                      child: Text("Seguir"),
                     ),
-                    const SizedBox(width: 16),
-                    ElevatedButton(
-                      onPressed: () {
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green,
-                        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: OutlinedButton(
+                        onPressed: () {},
+                        child: const Text("Mensagem"),
                       ),
-                      child: Text("Enviar Mensagem"),
                     ),
                   ],
                 ),
-                const SizedBox(height: 20),
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
